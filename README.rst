@@ -7,7 +7,7 @@
    :alt: Build Status
    :target: https://travis-ci.org/dsanders11/django-future-staticfiles
 
-.. image:: https://pypip.in/v/django-future-staticfiles/badge.svg
+.. image:: https://img.shields.io/pypi/v/django-future-staticfiles.svg
    :alt: Latest PyPI version
    :target: https://pypi.python.org/pypi/django-future-staticfiles/
 
