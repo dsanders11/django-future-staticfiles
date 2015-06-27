@@ -21,10 +21,14 @@ Django 1.6
 Overview
 ========
 
+Quick and dirty backport of the latest staticfiles storages from the latest
+Django to be used with Django 1.6. Tests are backported as well to ensure
+everything works, but butchered to remove post-Django 1.6 tests.
+
 Requirements
 ============
 
-Requires Django 1.6+ and as such Python 2.6+ as well
+Requires Django 1.6+ and as such `Python`_ 2.6+ as well
 
 Installation
 ============
@@ -33,5 +37,22 @@ Simply use `pip`_ to install::
 
     $ pip install django-future-staticfiles
 
+Usage
+=====
 
-https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#storages
+The storages should be drop in replacements, so they can be used in
+`settings.py` for `STATICFILES_STORAGE`::
+
+    $ STATICFILES_STORAGE='django_future_staticfiles.storage.CachedStaticFilesStorage'
+
+Contributing
+============
+
+Contributions are welcome, just create a pull request or issue on the
+`GitHub repository`_ for the project.
+
+.. _`Django`: https://djangoproject.com/
+.. _`GitHub repository`: https://github.com/dsanders11/django-migrate-project
+.. _`pip`: https://pip.pypa.io/en/stable/
+.. _`Python`: https://python.org/
+.. _`staticfiles storages`: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#storages
