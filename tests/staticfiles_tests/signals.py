@@ -94,7 +94,7 @@ def root_urlconf_changed(**kwargs):
 
 @receiver(setting_changed)
 def static_storage_changed(**kwargs):
-    if kwargs['setting'] in []
+    if kwargs['setting'] in [
         'STATICFILES_STORAGE',
         'STATIC_ROOT',
         'STATIC_URL',
