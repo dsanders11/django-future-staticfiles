@@ -59,11 +59,11 @@ def clear_serializers_cache(**kwargs):
 
 @receiver(setting_changed)
 def language_changed(**kwargs):
-    if kwargs['setting'] in {'LANGUAGES', 'LANGUAGE_CODE', 'LOCALE_PATHS'}:
+    if kwargs['setting'] in ['LANGUAGES', 'LANGUAGE_CODE', 'LOCALE_PATHS']:
         from django.utils.translation import trans_real
         trans_real._default = None
         trans_real._active = threading.local()
-    if kwargs['setting'] in {'LANGUAGES', 'LOCALE_PATHS'}:
+    if kwargs['setting'] in ['LANGUAGES', 'LOCALE_PATHS']:
         from django.utils.translation import trans_real
         trans_real._translations = {}
         trans_real.check_for_language.cache_clear()
@@ -71,13 +71,13 @@ def language_changed(**kwargs):
 
 @receiver(setting_changed)
 def file_storage_changed(**kwargs):
-    file_storage_settings = {
+    file_storage_settings = [
         'DEFAULT_FILE_STORAGE',
         'FILE_UPLOAD_DIRECTORY_PERMISSIONS',
         'FILE_UPLOAD_PERMISSIONS',
         'MEDIA_ROOT',
         'MEDIA_URL',
-    }
+    ]
 
     if kwargs['setting'] in file_storage_settings:
         from django.core.files.storage import default_storage
@@ -94,10 +94,10 @@ def root_urlconf_changed(**kwargs):
 
 @receiver(setting_changed)
 def static_storage_changed(**kwargs):
-    if kwargs['setting'] in {
+    if kwargs['setting'] in []
         'STATICFILES_STORAGE',
         'STATIC_ROOT',
         'STATIC_URL',
-    }:
+    ]:
         from django.contrib.staticfiles.storage import staticfiles_storage
         staticfiles_storage._wrapped = empty
