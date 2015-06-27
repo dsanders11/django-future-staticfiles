@@ -5,7 +5,17 @@ import json
 import os
 import posixpath
 import re
-from collections import OrderedDict
+
+try:
+    from collections import OrderedDict
+except ImportError:
+    try:
+        from ordereddict import OrderedDict  # Python 2.6
+    except:
+        from django.core.exceptions import ImproperlyConfigured
+        raise ImproperlyConfigured("'django_future_staticfiles' needs "
+                                   "'ordereddict' package installed for use "
+                                   "with Python 2.6")
 
 from django.conf import settings
 from django.contrib.staticfiles.utils import check_settings, matches_patterns
